@@ -1,6 +1,6 @@
 
 server:
-  port: 8200 #8181
+  port: 8200
 
 eureka:
   client:

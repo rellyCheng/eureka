@@ -10,19 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping(
-        value = "/github",
-        produces = MediaType.APPLICATION_JSON_UTF8_VALUE
-)
+@RequestMapping("/github")
 public class GitHubController {
     @Resource
     private GitHubClient gitHubClient;
 
     @RequestMapping(
             value = "/search/repositories",
-            method = RequestMethod.GET
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    String searchRepo(@RequestParam("q") String q) {
+    public String searchRepo(@RequestParam("q") String q) {
         return gitHubClient.searchRepo(q);
     }
 
